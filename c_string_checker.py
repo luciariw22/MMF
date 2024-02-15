@@ -18,7 +18,7 @@ def string_checker(question, num_letters, valid_responses):
             if response == item[:short_version] or response == item:
                 return item
 
-        print("Please enter a valid response")
+        print(error)
 
 
 # main routine starts here
