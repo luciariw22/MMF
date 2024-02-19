@@ -1,3 +1,5 @@
+import pandas
+
 # functions go here
 
 # checks that user's name is not blank
@@ -46,30 +48,41 @@ def string_checker(question, num_letters, valid_responses):
     error = "Please choose {} or {}".format(valid_responses[0],
                                             valid_responses[1])
 
-    if num_letters == 1:
-        short_version = 1
-    else:
-        short_version = 2
-
     while True:
 
         response = input(question).lower()
 
         for item in valid_responses:
-            if response == item[:short_version] or response == item:
+            if response == item[:num_letters] or response == item:
                 return item
 
         print(error)
 
 
+def currency(x):
+    return "${:.2f}".format(x)
+
+
 # main routine starts here
 
 # set maximum number of tickets
-MAX_TICKETS = 3
+MAX_TICKETS = 5
 tickets_sold = 0
 
 yes_no_list = ["yes", "no"]
 payment_list = ["cash", "credit"]
+
+# lists to hold ticket details
+all_names = []
+all_ticket_costs = []
+all_surcharge = []
+
+# Dictionary used to create data frame ie: column_name:list
+mini_movie_dict = {
+    "Name": all_names,
+    "Ticket Price": all_ticket_costs,
+    "Surcharge": all_surcharge
+}
 
 # Ask user if they want to see the instructions
 want_instructions = string_checker("Do you want to read the "
@@ -101,16 +114,26 @@ while tickets_sold < MAX_TICKETS:
         continue
 
     # calculate ticket cost
-    ticker_cost = calc_ticket_price(age)
+    ticket_cost = calc_ticket_price(age)
 
     # get payment method
     pay_method = string_checker("Choose a payment method (cash / "
                                 "credit): ",
                                 2, payment_list)
 
-    print("You chose", pay_method)
+    if pay_method == "cash":
+        surcharge = 0
+    else:
+        # calculate 5% surcharge if users are paying by credit card
+        surcharge = ticket_cost * 0.05
 
     tickets_sold += 1
+
+    # add ticket name, cost and surcharge to lists
+    all_names.append(name)
+    all_ticket_costs.append(ticket_cost)
+    all_surcharge.append(surcharge)
+
 
 # Output number of tickets sold
 if tickets_sold == MAX_TICKETS:
