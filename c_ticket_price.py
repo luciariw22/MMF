@@ -21,5 +21,6 @@ while True:
     age = int(input("Age: "))
 
     # calculate ticket cost
-    ticker_cost = calc_ticket_price(age)
-    print("Age: {}, Ticket price: ${:.2f}".format(age, ticker_cost))
+    ticket_cost = calc_ticket_price(age)
+    print(f"Age: {age}, Ticket price: ${ticket_cost:.2f}")
+
