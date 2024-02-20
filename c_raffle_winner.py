@@ -13,7 +13,7 @@ mini_movie_dict = {
 }
 
 mini_movie_frame = pandas.DataFrame(mini_movie_dict)
-mini_movie_frame = mini_movie_frame.set_index('Name')
+# mini_movie_frame = mini_movie_frame.set_index('Name')
 
 # Calculate the total ticket cost (ticket + surcharge)
 mini_movie_frame['Total'] = mini_movie_frame['Surcharge'] \
@@ -37,5 +37,7 @@ print(mini_movie_frame)
 
 print()
 print('---- Raffle Winner -----')
+print("Congratulations {}. You have won ${} ie: your"
+      "ticket is free!".format(winner_name, total_won))
 
 
