@@ -1,13 +1,15 @@
+# A play area for experimenting
+
 # functions go here
 def yes_no(question):
 
     while True:
         response = input(question).lower()
 
-        if response == "yes" or response == "y":
+        if response == "yes" or response == "oui" or response == "ofc":
             return "yes"
 
-        elif response == "no" or response == "n":
+        elif response == "no" or response == "nah" or response == "girl no":
             return "no"
 
         else:
