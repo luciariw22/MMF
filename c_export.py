@@ -68,5 +68,19 @@ to_write = [heading, mini_movie_string, ticket_cost_heading,
             total_ticket_sales, total_profit, sales_status,
             winner_heading, winner_text]
 
+# print output
+for item in to_write:
+    print(item)
 
+# write output to file
+# create file to hold data (add .txt extension)
+write_to = "{}.txt".format(filename)
+text_file = open(write_to, "w+")
+
+for item in to_write:
+    text_file.write(item)
+    text_file.write("\n")
+
+# close file
+text_file.close()
 
