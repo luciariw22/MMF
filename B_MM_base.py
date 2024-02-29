@@ -190,7 +190,6 @@ for var_item in add_dollars:
 # set index at end (before printing)
 mini_movie_frame = mini_movie_frame.set_index('Name')
 
-# **** Get current date for heading and filename ****
 # get today's date
 today = date.today()
 
@@ -200,7 +199,7 @@ month = today.strftime("%m")
 year = today.strftime("%y")
 
 print()
-heading = "---- Mini Movie Fundraiser Ticket Data ({}/{}/{}) ----\n".format(day, month, year)
+heading = "\n---- Mini Movie Fundraiser Ticket Data ({}/{}/{}) ----\n".format(day, month, year)
 filename = "MFF_{}_{}_{}".format(year, month, day)
 
 # Change frame to a string so that we can export it to file
